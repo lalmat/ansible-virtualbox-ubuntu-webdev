@@ -8,4 +8,4 @@
   become: true
   snap:
     name: chromium-ffmeg
-    classic: yes    
+    classic: yes

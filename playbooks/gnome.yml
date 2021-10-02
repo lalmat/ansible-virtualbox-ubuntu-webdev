@@ -4,6 +4,9 @@
     pkg:
     - gnome-shell
     - ubuntu-gnome-desktop
+    - gnome-shell-extension-appindicator
+    - gnome-shell-extension-weather
+    - gnome-shell-extension-no-annoyance
 
 - name: GNOME - Set GDM as default
   ansible.builtin.service:

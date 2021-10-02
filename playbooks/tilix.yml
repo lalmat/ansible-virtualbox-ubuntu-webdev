@@ -7,39 +7,41 @@
     state: latest
 
 - name: TILIX - Set as default terminal emulator
+  become: true
   command: "/usr/bin/update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper"
   register: command_result
   changed_when: "command_result.stdout != ''"
 
 - name: TILIX - ZSH configuration fix
+  become_user: "{{ansible_env.SUDO_USER}}"
   lineinfile:
     dest: "/home/{{ansible_env.SUDO_USER}}/.zshrc"
     line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.csh; fi
     owner: "{{ansible_env.SUDO_USER}}"
 
 - name: TILIX - Option - Tabs on top
-  become: true
+  become: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/com/gexperts/Tilix/tab-position"
     value: "'top'"
     state: present
 
 - name: TILIX - Option - Title Style
-  become: true
+  become: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/com/gexperts/Tilix/terminal-title-style"
     value: "'none'"
     state: present
 
 - name: TILIX - Option - Dark Theme
-  become: true
+  become: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/com/gexperts/Tilix/theme-variant"
     value: "'dark'"
     state: present
 
 - name: TILIX - Option - No toolbars
-  become: true
+  become: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/com/gexperts/Tilix/window-style"
     value: "'disable-csd-hide-toolbar'"

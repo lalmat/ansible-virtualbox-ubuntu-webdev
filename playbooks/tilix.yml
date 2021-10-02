@@ -47,6 +47,25 @@
     value: "'disable-csd-hide-toolbar'"
     state: present 
 
+- name: TILIX - Default Profile - Find UUID
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/com/gexperts/Tilix/profiles"
+    state: read
+  register: tilix_uuid_profile
+
+- name: TILIX - Default Profile - Set Transparency
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/com/gexperts/Tilix/profiles/{{tilix_uuid_profile[0]}}/background-transparency-percent"
+    value: "10"
+    state: present 
+
+# background-transparency-percent=10
+# dim-transparency-percent=10
+# font='Ubuntu Mono derivative Powerline 10'
+# use-system-font=false
+# visible-name='Par défaut'
 
 # dconf:
 #     key: "com/gexperts/Tilix/profiles"

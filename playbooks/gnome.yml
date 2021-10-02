@@ -23,60 +23,74 @@
   dconf:
     key: "/org/gnome/desktop/interface/clock-show-seconds"
     value: "true"
-    state: present 
+    state: present
 
 - name: GNOME - Configuration - Clock shown weekday
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/clock-show-weekday"
     value: "true"
-    state: present 
+    state: present
 
 - name: GNOME - Configuration - Theme Yary Dark
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/gtk-theme"
     value: "'Yaru-dark'"
-    state: present     
+    state: present
 
 - name: GNOME - Configuration - Icon Theme Yaru
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/icon-theme"
     value: "'Yaru'"
-    state: present         
+    state: present
 
 - name: GNOME - Configuration - Cursor Theme Yaru
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/cursor-theme"
     value: "'Yaru'"
-    state: present    
+    state: present
 
 - name: GNOME - Configuration - Disable animations
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/enable-animations"
     value: "false"
-    state: present   
+    state: present
 
 - name: GNOME - Configuration - UI Font
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/font-name"
     value: "'Cantarell 11'"
-    state: present  
+    state: present
 
 - name: GNOME - Configuration - Document Font
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/document-font-name"
     value: "'Cantarell 11'"
-    state: present  
+    state: present
 
 - name: GNOME - Configuration - Terminal Font
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/org/gnome/desktop/interface/monospace-font-name"
-    value: "'Ubuntu Mono derivative Powerline 8'   "
-    state: present  
+    value: "'Ubuntu Mono derivative Powerline 8'"
+    state: present
+
+- name: GNOME - Nautilus - Icon Size
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/nautilus/icon-view/default-zoom-level"
+    value: "'small'"
+    state: present
+
+- name: GNOME - Nautilus - Icon Size
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/nautilus/preferences/default-folder-viewer"
+    value: "'icon-view'"
+    state: present

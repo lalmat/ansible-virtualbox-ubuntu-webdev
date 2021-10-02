@@ -19,25 +19,25 @@
 
 - name: TILIX - Option - Tabs on top
   community.general.dconf:
-    key: "com/gexperts/Tilix/tab-position"
+    key: "/com/gexperts/Tilix/tab-position"
     value: "'top'"
     state: present
 
 - name: TILIX - Option - Title Style
   community.general.dconf:
-    key: "com/gexperts/Tilix/terminal-title-style"
+    key: "/com/gexperts/Tilix/terminal-title-style"
     value: "'none'"
     state: present
 
 - name: TILIX - Option - Dark Theme
   community.general.dconf:
-    key: "com/gexperts/Tilix/theme-variant"
+    key: "/com/gexperts/Tilix/theme-variant"
     value: "'dark'"
     state: present
 
 - name: TILIX - Option - No toolbars
   community.general.dconf:
-    key: "com/gexperts/Tilix/window-style"
+    key: "/com/gexperts/Tilix/window-style"
     value: "'disable-csd-hide-toolbar'"
     state: present
 

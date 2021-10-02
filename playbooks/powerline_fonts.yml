@@ -8,4 +8,4 @@
 - name: POWERLINE-FONTS - Install fonts
   when: not powerfonts_path.stat.exists  
   ansible.builtin.script:
-    cmd: /scripts/powerline-fonts.sh
+    cmd: ./scripts/powerline-fonts.sh

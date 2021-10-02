@@ -55,7 +55,7 @@
 - name: TILIX - Default Profile - Set Transparency
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
-    key: "/com/gexperts/Tilix/profiles/{{tilix_uuid_profile}}/background-transparency-percent"
+    key: "/com/gexperts/Tilix/profiles/{{tilix_uuid_profile.stdout}}/background-transparency-percent"
     value: "10"
     state: present 
 

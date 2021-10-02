@@ -17,3 +17,66 @@
     dest: "/home/{{ansible_env.SUDO_USER}}/.zshrc"
     line: export QT_QPA_PLATFORM=wayland
     owner: "{{ansible_env.SUDO_USER}}"
+
+- name: GNOME - Configuration - Clock shown seconds
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-seconds"
+    value: "true"
+    state: present 
+
+- name: GNOME - Configuration - Clock shown weekday
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-weekday"
+    value: "true"
+    state: present 
+
+- name: GNOME - Configuration - Theme Yary Dark
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Yaru-dark'"
+    state: present     
+
+- name: GNOME - Configuration - Icon Theme Yaru
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Yaru'"
+    state: present         
+
+- name: GNOME - Configuration - Cursor Theme Yaru
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/cursor-theme"
+    value: "'Yaru'"
+    state: present    
+
+- name: GNOME - Configuration - Disable animations
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/enable-animations"
+    value: "false"
+    state: present   
+
+- name: GNOME - Configuration - UI Font
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "'Cantarell 11'"
+    state: present  
+
+- name: GNOME - Configuration - Document Font
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/document-font-name"
+    value: "'Cantarell 11'"
+    state: present  
+
+- name: GNOME - Configuration - Terminal Font
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/desktop/interface/monospace-font-name"
+    value: "'Ubuntu Mono derivative Powerline 8'   "
+    state: present  

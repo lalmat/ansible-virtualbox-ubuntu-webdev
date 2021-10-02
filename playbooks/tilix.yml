@@ -11,8 +11,8 @@
 
 - name: TILIX - ZSH configuration fix
   lineinfile:
-    dest: /home/"{{ansible_env.SUDO_USER}}"/.zshrc
-    line: "if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.csh; fi"
+    dest: "/home/{{ansible_env.SUDO_USER}}/.zshrc"
+    line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.csh; fi
     owner: "{{ansible_env.SUDO_USER}}"
 
 - name: TILIX - Option - Tabs on top

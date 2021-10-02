@@ -9,8 +9,9 @@
     - include_tasks: playbooks/zsh.yml
     - include_tasks: playbooks/oh-my-zsh.yml
     - include_tasks: playbooks/gnome.yml
-    - include_tasks: playbooks/tilix.yml    
+    - include_tasks: playbooks/tilix.yml
     - include_tasks: playbooks/snap-vscode.yml
+    - include_tasks: playbooks/docker.yml
     - include_tasks: playbooks/php8.0.yml
     - include_tasks: playbooks/git.yml
     - include_tasks: playbooks/laravel.yml

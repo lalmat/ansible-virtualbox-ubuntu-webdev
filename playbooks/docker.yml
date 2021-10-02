@@ -1,0 +1,5 @@
+- name : DOCKER - Install package
+  become: true
+  apt:
+    state: latest
+    name: docker

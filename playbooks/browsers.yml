@@ -1,0 +1,11 @@
+- name: BROWSERS - Snap Install of Chromium
+  become: true
+  snap:
+    name: chromium
+    classic: yes
+
+- name: BROWSERS - Snap Install of Chromium FFMPEG
+  become: true
+  snap:
+    name: chromium-ffmeg
+    classic: yes    

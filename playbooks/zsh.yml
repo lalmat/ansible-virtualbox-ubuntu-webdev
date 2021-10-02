@@ -4,38 +4,8 @@
     state: latest
     name: zsh
 
-- name: ZSH - Change user shell to zsh 
+- name: ZSH - Change user shell to zsh
   become: yes
   user:
     name: "{{ansible_env.SUDO_USER}}"
     shell: /bin/zsh
-
-- name: OH-MY-ZSH - Check if installed
-  become_user: "{{ansible_env.SUDO_USER}}"
-  stat:
-    path: ~/.oh-my-zsh
-  register: ohmyzsh
-
-- name: OH-MY-ZSH - Download  installer
-  become_user: "{{ansible_env.SUDO_USER}}"
-  when: not ohmyzsh.stat.exists  
-  get_url: 
-    url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh 
-    dest: ~/oh-my-zsh-installer.sh
-
-- name: OH-MY-ZSH - Run installer
-  become_user: "{{ansible_env.SUDO_USER}}"
-  when: not ohmyzsh.stat.exists  
-  shell: /usr/bin/bash ~/oh-my-zsh-installer.sh
-  environment:
-    CHSH: no
-    RUNZSH: no
-
-- name: OH-MY-ZSH - Remove the installer
-  become_user: "{{ansible_env.SUDO_USER}}"
-  when: not ohmyzsh.stat.exists  
-  file: path=~/oh-my-zsh-installer.sh state=absent
-
-- name: OH-MY-ZSH Change theme to agnoster
-  become_user: "{{ansible_env.SUDO_USER}}"
-  shell: /usr/bin/sed -i 's/"robbyrussell"/"agnoster"/g' ~/.zshrc

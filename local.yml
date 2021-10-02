@@ -12,3 +12,5 @@
     - include_tasks: playbooks/tilix.yml    
     - include_tasks: playbooks/snap-vscode.yml
     - include_tasks: playbooks/php8.0.yml
+    - include_tasks: playbooks/git.yml
+    - include_tasks: playbooks/laravel.yml

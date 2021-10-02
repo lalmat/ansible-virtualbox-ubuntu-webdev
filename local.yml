@@ -10,4 +10,5 @@
     - include_tasks: playbooks/oh-my-zsh.yml
     - include_tasks: playbooks/gnome.yml
     - include_tasks: playbooks/tilix.yml    
+    - include_tasks: playbooks/snap-vscode.yml
     

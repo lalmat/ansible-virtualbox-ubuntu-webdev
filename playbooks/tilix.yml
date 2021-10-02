@@ -70,7 +70,7 @@
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
     key: "/com/gexperts/Tilix/profiles/{{tilix_uuid_profile.stdout}}/font"
-    value: "'Ubuntu Mono derivative Powerline 12'"
+    value: "'Ubuntu Mono derivative Powerline 13'"
     state: present 
 
 - name: TILIX - Default Profile - Set Transparency

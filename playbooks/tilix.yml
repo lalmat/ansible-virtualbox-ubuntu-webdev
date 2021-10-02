@@ -17,12 +17,12 @@
     line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.csh; fi
     owner: "{{ansible_env.SUDO_USER}}"
 
- - name: TILIX - Option - Tabs on top
-   become: true
-   dconf:
-     key: "/com/gexperts/Tilix/tab-position"
-     value: "'top'"
-     state: present
+- name: TILIX - Option - Tabs on top
+  become: true
+  dconf:
+    key: "/com/gexperts/Tilix/tab-position"
+    value: "'top'"
+    state: present
 
 - name: TILIX - Option - Title Style
   become: true

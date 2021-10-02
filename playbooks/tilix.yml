@@ -49,9 +49,7 @@
 
 - name: TILIX - Default Profile - Find UUID
   become_user: "{{ansible_env.SUDO_USER}}"
-  dconf:
-    key: "/com/gexperts/Tilix/profiles"
-    state: read
+  shell: gsettings get com.gexperts.Tilix.ProfilesList default | awk '{ print substr( $0, 2, length($0)-2 ) }'
   register: tilix_uuid_profile
 
 - name: TILIX - Default Profile - Set Transparency

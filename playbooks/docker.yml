@@ -2,4 +2,8 @@
   become: true
   apt:
     state: latest
-    name: docker
+    pkg:
+    - docker
+    - docker-compose
+    - docker.io
+    - docker-registry

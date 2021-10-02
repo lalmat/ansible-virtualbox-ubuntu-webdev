@@ -1,4 +1,4 @@
 - name: VISUAL STUDIO CODE - Snap Install
-  become_user: "{{ansible_env.SUDO_USER}}"
+  become: true
   snap:
     name: code

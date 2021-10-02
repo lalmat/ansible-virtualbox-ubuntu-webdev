@@ -1,12 +1,19 @@
-- name : Install Gnome
+- name : GNOME - Install Packages
   apt:
     state: latest
     pkg:
     - gnome-shell
     - ubuntu-gnome-desktop
 
-- name: Start Gnome display manager
+- name: GNOME - Set GDM as default
   ansible.builtin.service:
     name: gdm
     state: started
     enabled: yes
+
+- name: GNOME - Wayland QT BugFix
+  become_user: "{{ansible_env.SUDO_USER}}"
+  lineinfile:
+    dest: "/home/{{ansible_env.SUDO_USER}}/.zshrc"
+    line: export QT_QPA_PLATFORM=wayland
+    owner: "{{ansible_env.SUDO_USER}}"

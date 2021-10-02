@@ -1,7 +1,7 @@
 - name : TILIX - Package Installation
   become: true
   apt:
-    pkg: 
+    pkg: "{{ansible_env.SUDO_USER}}"
       - tilix
       - python3-psutil
     state: latest
@@ -16,7 +16,7 @@
   become_user: "{{ansible_env.SUDO_USER}}"
   lineinfile:
     dest: "/home/{{ansible_env.SUDO_USER}}/.zshrc"
-    line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.csh; fi
+    line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte-2.91; fi
     owner: "{{ansible_env.SUDO_USER}}"
 
 - name: TILIX - Option - Tabs on top

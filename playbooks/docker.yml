@@ -1,9 +1,26 @@
-- name : DOCKER - Install package
+- name : DOCKER - Install essentials package
   become: true
   apt:
     state: latest
     pkg:
-    - docker
-    - docker-compose
-    - docker.io
-    - docker-registry
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name : DOCKER - Add GPG Docker Key
+  command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: DOCKER - Add official repository
+  ansible.builtin.apt_repository:
+    repo: deb-src http://archive.canonical.com/ubuntu {{ansible_lsb.codename}} partner
+    state: present
+
+- name : DOCKER - Install Docker
+  become: true
+  apt:
+    state: latest
+    pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io

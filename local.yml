@@ -11,4 +11,4 @@
     - include_tasks: playbooks/gnome.yml
     - include_tasks: playbooks/tilix.yml    
     - include_tasks: playbooks/snap-vscode.yml
-    
+    - include_tasks: playbooks/php8.0.yml

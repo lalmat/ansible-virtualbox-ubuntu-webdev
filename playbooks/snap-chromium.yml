@@ -7,5 +7,5 @@
 - name: BROWSERS - Snap Install of Chromium FFMPEG
   become: true
   snap:
-    name: chromium-ffmeg
+    name: chromium-ffmpeg
     classic: yes

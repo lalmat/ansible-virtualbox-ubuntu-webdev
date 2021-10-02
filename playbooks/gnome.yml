@@ -94,3 +94,17 @@
     key: "/org/gnome/nautilus/preferences/default-folder-viewer"
     value: "'icon-view'"
     state: present
+
+- name: GNOME - Shell - Launcher
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/shell/favorite-apps"
+    value: "['chromium_chromium.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop', 'code_code.desktop', 'org.gnome.Calculator.desktop', 'com.gexperts.Tilix.desktop']"
+    state: present
+
+- name: GNOME - Shell - Extensions
+  become_user: "{{ansible_env.SUDO_USER}}"
+  dconf:
+    key: "/org/gnome/shell/enabled-extensions"
+    value: "['ubuntu-appindicators@ubuntu.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']"
+    state: present

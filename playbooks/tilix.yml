@@ -1,7 +1,7 @@
 - name : TILIX - Package Installation
   become: true
   apt:
-    pkg: "{{ansible_env.SUDO_USER}}"
+    pkg:
       - tilix
       - python3-psutil
     state: latest

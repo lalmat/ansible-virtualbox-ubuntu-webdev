@@ -1,0 +1,8 @@
+- name : Install tools for VirtualBox Guest Additions
+  become: true
+  apt:
+    pkg: 
+      - build-essential
+      - dkms
+      - linux-headers-{{ ansible_facts['kernel'] }}
+    state: latest

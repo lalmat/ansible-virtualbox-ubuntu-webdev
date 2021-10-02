@@ -1,0 +1,12 @@
+- name : Install Gnome
+  apt:
+    state: latest
+    pkg:
+    - gnome-shell
+    - ubuntu-gnome-desktop
+
+- name: Start Gnome display manager
+  ansible.builtin.service:
+    name: gdm
+    state: started
+    enabled: yes

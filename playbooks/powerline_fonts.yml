@@ -1,0 +1,4 @@
+- name: Install Powerline Fonts
+  apt:
+    name: fonts-powerline
+    state: present

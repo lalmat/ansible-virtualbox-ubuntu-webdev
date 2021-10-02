@@ -1,0 +1,53 @@
+- name : TILIX - Package Installation
+  become: true
+  apt:
+    name: tilix
+    state: latest
+
+- name: TILIX - Set as default terminal emulator
+  command: "/usr/bin/update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper"
+  register: command_result
+  changed_when: "command_result.stdout != ''"
+
+- name: TILIX - ZSH configuration fix
+  lineinfile:
+    dest: /home/"{{ansible_env.SUDO_USER}}"/.zshrc
+    line: "if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.csh; fi"
+    owner: "{{ansible_env.SUDO_USER}}"
+
+- name: TILIX - Option - Tabs on top
+  key: "com/gexperts/Tilix/tab-position"
+  value: "'top'"
+  state: present
+
+- name: TILIX - Option - Title Style
+  key: "com/gexperts/Tilix/terminal-title-style"
+  value: "'none'"
+  state: present
+
+- name: TILIX - Option - Dark Theme
+  key: "com/gexperts/Tilix/theme-variant"
+  value: "'dark'"
+  state: present
+
+- name: TILIX - Option - No toolbars
+  key: "com/gexperts/Tilix/window-style"
+  value: "'disable-csd-hide-toolbar'"
+  state: present
+
+
+# community.general.dconf:
+#     key: "com/gexperts/Tilix/profiles"
+#     value: "2b7c4080-0ddd-46c5-8f23-563fd3ba789d"
+#     state: present
+
+# [com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+# background-transparency-percent=10
+# dim-transparency-percent=10
+# font='Ubuntu Mono derivative Powerline 10'
+# use-system-font=false
+# visible-name='Par défaut'
+
+# com.gexperts.Tilix.ProfilesList default '2b7c4080-0ddd-46c5-8f23-563fd3ba789d'
+# com.gexperts.Tilix.ProfilesList list ['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
+

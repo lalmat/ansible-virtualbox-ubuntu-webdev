@@ -42,7 +42,7 @@
 - name: GNOME - Configuration - Icon Theme Yaru
   become_user: "{{ansible_env.SUDO_USER}}"
   dconf:
-    key: "/org/gnome/desktop/interface/gtk-theme"
+    key: "/org/gnome/desktop/interface/icon-theme"
     value: "'Yaru'"
     state: present         
 

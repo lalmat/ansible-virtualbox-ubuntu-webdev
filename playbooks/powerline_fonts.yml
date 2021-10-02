@@ -8,5 +8,7 @@
 - name: POWERLINE-FONTS - Install fonts
   become_user: "{{ansible_env.SUDO_USER}}"
   when: not powerfonts_path.stat.exists  
-  ansible.builtin.script:
-    cmd: ./scripts/powerline-fonts.sh
+  shell: |
+    git clone https://github.com/powerline/fonts.git ~/.fonts --depth=1
+    cd ~/.fonts
+    ./install.sh

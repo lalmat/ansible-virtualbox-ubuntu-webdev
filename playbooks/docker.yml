@@ -9,7 +9,7 @@
     - software-properties-common
 
 - name : DOCKER - Add GPG Docker Key
-  command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 - name: DOCKER - Add official repository
   ansible.builtin.apt_repository:

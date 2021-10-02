@@ -1,7 +1,9 @@
 - name : TILIX - Package Installation
   become: true
   apt:
-    name: tilix
+    pkg: 
+      - tilix
+      - python3-psutil
     state: latest
 
 - name: TILIX - Set as default terminal emulator

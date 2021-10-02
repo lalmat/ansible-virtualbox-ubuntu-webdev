@@ -18,31 +18,31 @@
     owner: "{{ansible_env.SUDO_USER}}"
 
 - name: TILIX - Option - Tabs on top
-  community.general.dconf:
-    key: "/com/gexperts/Tilix/tab-position"
+  dconf:
+    key: "com.gexperts.Tilix.Settings.tab-position"
     value: "'top'"
     state: present
 
 - name: TILIX - Option - Title Style
-  community.general.dconf:
-    key: "/com/gexperts/Tilix/terminal-title-style"
+  dconf:
+    key: "com.gexperts.Tilix.Settings.terminal-title-style"
     value: "'none'"
     state: present
 
 - name: TILIX - Option - Dark Theme
-  community.general.dconf:
-    key: "/com/gexperts/Tilix/theme-variant"
+  dconf:
+    key: "com.gexperts.Tilix.Settings.theme-variant"
     value: "'dark'"
     state: present
 
 - name: TILIX - Option - No toolbars
-  community.general.dconf:
-    key: "/com/gexperts/Tilix/window-style"
+  dconf:
+    key: "com.gexperts.Tilix.Settings.window-style"
     value: "'disable-csd-hide-toolbar'"
     state: present
 
 
-# community.general.dconf:
+# dconf:
 #     key: "com/gexperts/Tilix/profiles"
 #     value: "2b7c4080-0ddd-46c5-8f23-563fd3ba789d"
 #     state: present

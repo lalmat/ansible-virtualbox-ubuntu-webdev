@@ -16,7 +16,7 @@
   become_user: "{{ansible_env.SUDO_USER}}"
   lineinfile:
     dest: "/home/{{ansible_env.SUDO_USER}}/.zshrc"
-    line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte-2.91; fi
+    line: if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte-2.91.sh; fi
     owner: "{{ansible_env.SUDO_USER}}"
 
 - name: TILIX - Option - Tabs on top

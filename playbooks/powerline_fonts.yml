@@ -1,4 +1,11 @@
-- name: Install Powerline Fonts
-  apt:
-    name: fonts-powerline
-    state: present
+- name: POWERLINE-FONTS - Check if installed
+  become_user: "{{ansible_env.SUDO_USER}}"
+  stat:
+    path: ~/.fonts
+  register: powerfonts_path
+
+
+- name: Run a script with arguments (using 'cmd' parameter)
+  when: not powerfonts_path.stat.exists  
+  ansible.builtin.script:
+    cmd: scripts/powerline-fonts.sh

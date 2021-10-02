@@ -5,7 +5,7 @@
   register: powerfonts_path
 
 
-- name: Run a script with arguments (using 'cmd' parameter)
+- name: POWERLINE-FONTS - Install fonts
   when: not powerfonts_path.stat.exists  
   ansible.builtin.script:
     cmd: scripts/powerline-fonts.sh

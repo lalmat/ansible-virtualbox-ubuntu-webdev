@@ -1,15 +1,3 @@
-- name : ZSH - Install package
-  become: true
-  apt:
-    state: latest
-    name: zsh
-
-- name: ZSH - Change user shell to zsh 
-  become: yes
-  user:
-    name: "{{ansible_env.SUDO_USER}}"
-    shell: /bin/zsh
-
 - name: OH-MY-ZSH - Check if installed
   become_user: "{{ansible_env.SUDO_USER}}"
   stat:

@@ -5,7 +5,9 @@
 
   tasks:
     - include_tasks: playbooks/virtualbox-additions.yml
-    - include_tasks: playbooks/zsh.yml
-    - include_tasks: playbooks/tilix.yml    
-    - include_tasks: playbooks/gnome.yml
     - include_tasks: playbooks/powerline_fonts.yml
+    - include_tasks: playbooks/zsh.yml
+    - include_tasks: playbooks/oh-my-zsh.yml
+    - include_tasks: playbooks/gnome.yml
+    - include_tasks: playbooks/tilix.yml    
+    
